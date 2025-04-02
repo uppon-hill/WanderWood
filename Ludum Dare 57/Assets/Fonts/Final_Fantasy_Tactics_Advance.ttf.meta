@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c70f27010e00a2c459b39722a899e613
+timeCreated: 1486888440
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 18
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Final Fantasy Tactics Advance
+  fontNames:
+  - Final Fantasy Tactics Advance
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf531f630c75bdf4d90fce8cad32c649, type: 3}
+  m_Name: Retrobox Preferences
+  m_EditorClassIdentifier: 
+  boxDictionary:
+    m_keys:
+    - Physics
+    - Hurt
+    - Hit
+    - Parry
+    - Enemy Physics
+    - Enemy Hurt
+    - Enemy Hit
+    - Item
+    - Ground
+    - Wall
+    - Enemy NoCollide
+    - Player NoCollide
+    - Prop
+    - Slide
+    - Effect
+    - Guard
+    - ItemPhysics
+    - Block
+    - Enemy Hurt2
+    - EnemyShield
+    - Grab
+    m_values:
+    - colour: {r: 0, g: 1, b: 0.503, a: 1}
+      boxTypeName: Physics
+      shape: 0
+      physicsLayer: 20
+      isRounded: 1
+      isAggressor: 0
+      material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+    - colour: {r: 0.0156249795, g: 0.7914336, b: 0.9453125, a: 1}
+      boxTypeName: Hurt
+      shape: 0
+      physicsLayer: 12
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.14705884, g: 0.5058823, b: 1, a: 1}
+      boxTypeName: Hit
+      shape: 0
+      physicsLayer: 13
+      isRounded: 0
+      isAggressor: 1
+      material: {fileID: 0}
+    - colour: {r: 0.6137934, g: 0, b: 1, a: 1}
+      boxTypeName: Parry
+      shape: 0
+      physicsLayer: 13
+      isRounded: 0
+      isAggressor: 1
+      material: {fileID: 0}
+    - colour: {r: 0.2654859, g: 0.8962264, b: 0.30633157, a: 1}
+      boxTypeName: Enemy Physics
+      shape: 0
+      physicsLayer: 21
+      isRounded: 1
+      isAggressor: 0
+      material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+    - colour: {r: 1, g: 0.7999862, b: 0.14700001, a: 1}
+      boxTypeName: Enemy Hurt
+      shape: 0
+      physicsLayer: 14
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 1, g: 0.36764705, b: 0.36764705, a: 1}
+      boxTypeName: Enemy Hit
+      shape: 0
+      physicsLayer: 15
+      isRounded: 0
+      isAggressor: 1
+      material: {fileID: 0}
+    - colour: {r: 0, g: 1, b: 0.95862055, a: 1}
+      boxTypeName: Item
+      shape: 0
+      physicsLayer: 19
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0, g: 0, b: 0, a: 1}
+      boxTypeName: Ground
+      shape: 0
+      physicsLayer: 11
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.31786183, g: 0.29757783, b: 0.4705882, a: 1}
+      boxTypeName: Wall
+      shape: 0
+      physicsLayer: 10
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+    - colour: {r: 0.24033462, g: 0.8113208, b: 0.53334063, a: 1}
+      boxTypeName: Enemy NoCollide
+      shape: 0
+      physicsLayer: 16
+      isRounded: 1
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.716, g: 0.941, b: 0.566, a: 1}
+      boxTypeName: Player NoCollide
+      shape: 0
+      physicsLayer: 26
+      isRounded: 1
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.52972, g: 0.68315613, b: 0.697, a: 1}
+      boxTypeName: Prop
+      shape: 0
+      physicsLayer: 24
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.28660065, g: 0.71550274, b: 0.039971113, a: 1}
+      boxTypeName: Slide
+      shape: 0
+      physicsLayer: 0
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+    - colour: {r: 0.97794116, g: 0.37391868, b: 0.83815306, a: 1}
+      boxTypeName: Effect
+      shape: 0
+      physicsLayer: 0
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.8219684, g: 0.5593279, b: 1, a: 1}
+      boxTypeName: Guard
+      shape: 0
+      physicsLayer: 12
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.49118724, g: 0.8455882, b: 0.69036055, a: 1}
+      boxTypeName: ItemPhysics
+      shape: 0
+      physicsLayer: 22
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.764151, g: 0.22530359, b: 0.21194375, a: 1}
+      boxTypeName: Block
+      shape: 0
+      physicsLayer: 0
+      isRounded: 0
+      isAggressor: 1
+      material: {fileID: 0}
+    - colour: {r: 1, g: 0.44470766, b: 0, a: 1}
+      boxTypeName: Enemy Hurt2
+      shape: 0
+      physicsLayer: 14
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.6415094, g: 0.26931292, b: 0.6345525, a: 1}
+      boxTypeName: EnemyShield
+      shape: 0
+      physicsLayer: 19
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.6274731, g: 0.15702844, b: 0.44040054, a: 1}
+      boxTypeName: Grab
+      shape: 0
+      physicsLayer: 15
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    o_keys:
+    - Physics
+    - Hurt
+    - Hit
+    - Guard
+    - Parry
+    - Enemy Physics
+    - Enemy Hurt
+    - Enemy Hurt2
+    - Enemy Hit
+    - EnemyShield
+    - Item
+    - Ground
+    - Wall
+    - Enemy NoCollide
+    - Player NoCollide
+    - Prop
+    - Slide
+    - Effect
+    - ItemPhysics
+    - Block
+    - Grab
+  pointDictionary:
+    m_keys:
+    - VelocityOffset
+    - Effect Trail
+    m_values:
+    - colour: {r: 1, g: 0.44449574, b: 0.0990566, a: 1}
+      boxTypeName: VelocityOffset
+      shape: 1
+      physicsLayer: 0
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    - colour: {r: 0.8867924, g: 0.22922742, b: 0.6564989, a: 1}
+      boxTypeName: Effect Trail
+      shape: 1
+      physicsLayer: 0
+      isRounded: 0
+      isAggressor: 0
+      material: {fileID: 0}
+    o_keys:
+    - VelocityOffset
+    - Effect Trail
+  propsDictionary:
+    m_keys:
+    - knockback
+    - hitstop
+    - damage
+    - effectVector
+    - ignoreHurt
+    - vulnerability
+    - tag
+    - modifier
+    - poise
+    - velocityCurve
+    - trackPivot
+    - forceRounded
+    - facing
+    m_values: 03000000030000000300000004000000000000000300000001000000010000000300000005000000000000000000000004000000
+    o_keys:
+    - hitstop
+    - damage
+    - effectVector
+    - ignoreHurt
+    - tag
+    - vulnerability
+    - forceRounded
+    - modifier
+    - knockback
+    - poise
+    - velocityCurve
+    - trackPivot
+    - facing
+  framePropsDictionary:
+    m_keys:
+    - Event
+    - Velocity
+    - VelX
+    - VelY
+    - FMOD Event
+    m_values: 0100000004000000000000000000000006000000
+    o_keys:
+    - Event
+    - Velocity
+    - VelX
+    - VelY
+    - FMOD Event
+  cachedZoomSetting: 0
+  cachedGridSetting: 1

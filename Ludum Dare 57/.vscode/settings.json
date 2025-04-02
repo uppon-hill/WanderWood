@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Ludum Dare 57.sln"
+    "dotnet.defaultSolution": "Ludum Dare 57.sln",
+    "omnisharp.useModernNet": false,
+    "dotnet.server.useOmnisharp": true,
+    "editor.defaultFormatter": null
 }
