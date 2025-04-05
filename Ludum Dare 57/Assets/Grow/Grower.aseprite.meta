@@ -350,8 +350,8 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Grower_Frame_0
-      frameIndex: 0
+    - name: Grower_Frame_1
+      frameIndex: 1
       additiveSortOrder: 0
       cellRect:
         x: 21
@@ -359,8 +359,8 @@ ScriptedImporter:
         width: 2
         height: 2
       spriteId: 52b43e8c4cf73fa419d9bcee628f058e
-    - name: Grower_Frame_1
-      frameIndex: 1
+    - name: Grower_Frame_2
+      frameIndex: 2
       additiveSortOrder: 0
       cellRect:
         x: 21
@@ -368,8 +368,8 @@ ScriptedImporter:
         width: 5
         height: 6
       spriteId: db84c27775deb434fac5c41d9dbf51b2
-    - name: Grower_Frame_2
-      frameIndex: 2
+    - name: Grower_Frame_3
+      frameIndex: 3
       additiveSortOrder: 0
       cellRect:
         x: 21
@@ -377,8 +377,8 @@ ScriptedImporter:
         width: 7
         height: 10
       spriteId: aff5d18c6ff2a904898efbb45dfdaa1c
-    - name: Grower_Frame_3
-      frameIndex: 3
+    - name: Grower_Frame_4
+      frameIndex: 4
       additiveSortOrder: 0
       cellRect:
         x: 21
@@ -386,8 +386,8 @@ ScriptedImporter:
         width: 11
         height: 14
       spriteId: de5044f42811e0042b4ce02ace9f515c
-    - name: Grower_Frame_4
-      frameIndex: 4
+    - name: Grower_Frame_5
+      frameIndex: 5
       additiveSortOrder: 0
       cellRect:
         x: 18
@@ -395,15 +395,6 @@ ScriptedImporter:
         width: 15
         height: 18
       spriteId: c3822f331d6e39d49b980eb6691654d7
-    - name: Grower_Frame_5
-      frameIndex: 5
-      additiveSortOrder: 0
-      cellRect:
-        x: 16
-        y: 0
-        width: 14
-        height: 26
-      spriteId: 94a45f6c1b784484fb6f987ded453102
     - name: Grower_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
@@ -411,10 +402,19 @@ ScriptedImporter:
         x: 16
         y: 0
         width: 14
-        height: 31
-      spriteId: ed041fa9128bef64681a10129835275d
+        height: 26
+      spriteId: 94a45f6c1b784484fb6f987ded453102
     - name: Grower_Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 16
+        y: 0
+        width: 14
+        height: 31
+      spriteId: ed041fa9128bef64681a10129835275d
+    - name: Grower_Frame_8
+      frameIndex: 8
       additiveSortOrder: 0
       cellRect:
         x: 16
@@ -422,8 +422,8 @@ ScriptedImporter:
         width: 13
         height: 36
       spriteId: 1685a67f76f9e3d4d88f47b199634921
-    - name: Grower_Frame_8
-      frameIndex: 8
+    - name: Grower_Frame_9
+      frameIndex: 9
       additiveSortOrder: 0
       cellRect:
         x: 17
@@ -431,8 +431,8 @@ ScriptedImporter:
         width: 14
         height: 39
       spriteId: f2afb9ea38f85bf4d9aed6379c5b8f36
-    - name: Grower_Frame_9
-      frameIndex: 9
+    - name: Grower_Frame_10
+      frameIndex: 10
       additiveSortOrder: 0
       cellRect:
         x: 17
@@ -440,8 +440,8 @@ ScriptedImporter:
         width: 15
         height: 42
       spriteId: a529973a45c21fd458e237f846f5605e
-    - name: Grower_Frame_10
-      frameIndex: 10
+    - name: Grower_Frame_11
+      frameIndex: 11
       additiveSortOrder: 0
       cellRect:
         x: 16

@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c72aefcc8aa8e314dab6d637406e0625, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,14 +130,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448b8e2a1a7e3fe4799017ea8befe6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  responsiveness: 1
+  responsiveness: 0.8
   animator: {fileID: 7080506321570171042}
   sprite: {fileID: 6933370210460630565}
   sheets:
+  - {fileID: 11400000, guid: 400700843c6f9ec4a92981d5941e503b, type: 2}
+  - {fileID: 11400000, guid: 04525ed4d2fff4b4b9481c5bcac76115, type: 2}
+  - {fileID: 11400000, guid: 04525ed4d2fff4b4b9481c5bcac76115, type: 2}
+  - {fileID: 11400000, guid: 86be44317ec1f6f46aed9c832f92e977, type: 2}
+  - {fileID: 11400000, guid: 86be44317ec1f6f46aed9c832f92e977, type: 2}
+  - {fileID: 11400000, guid: 86be44317ec1f6f46aed9c832f92e977, type: 2}
   - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
-  - {fileID: 11400000, guid: 065db97548796294c978827c7bdb146e, type: 2}
   - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
-  avgSamples: 60
+  - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
+  - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
+  - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
+  - {fileID: 11400000, guid: 4abf961c161c87c4882986fe2cb2efc8, type: 2}
+  avgSamples: 30
 --- !u!114 &7080506321570171042
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -293,7 +293,7 @@ namespace Retro {
             if (spriteRenderer != null) {
                 spriteRenderer.sprite = mySheet.spriteList[frame];
             }
-            ApplyProperties();
+            //ApplyProperties();
             SetSpriteLocalPosition();
             prevFrame = frame;
 

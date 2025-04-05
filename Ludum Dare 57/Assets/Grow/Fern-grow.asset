@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74690695c846e4ea0fb1e707b9f4d6, type: 3}
+  m_Name: Fern-grow
+  m_EditorClassIdentifier: 
+  version: 1.0
+  spriteList:
+  - {fileID: 8650503467782263893, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: -7431095630674096339, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: -5642045715387310248, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: -8548732273157612636, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: 6213860799896282852, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: -7238066632079308705, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: 3784759051526529437, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: -4336538620086314462, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: 91373967492964468, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  - {fileID: 8637159593776848664, guid: 8d283136c03bf7248b7036434090d97a, type: 3}
+  propertiesList:
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  groups: []
+  layers: []

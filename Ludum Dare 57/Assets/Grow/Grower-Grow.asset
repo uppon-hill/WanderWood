@@ -25,17 +25,8 @@ MonoBehaviour:
   - {fileID: 3358181087484543198, guid: b79173a38a5f96b45b3bea37717d13b4, type: 3}
   - {fileID: 6348272911707737491, guid: b79173a38a5f96b45b3bea37717d13b4, type: 3}
   - {fileID: 8415938242587182276, guid: b79173a38a5f96b45b3bea37717d13b4, type: 3}
+  - {fileID: -1690603938, guid: b79173a38a5f96b45b3bea37717d13b4, type: 3}
   propertiesList:
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
   - frameProperties: []
   groups: []
   layers: []

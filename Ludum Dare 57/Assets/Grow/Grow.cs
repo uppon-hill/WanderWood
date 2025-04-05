@@ -10,11 +10,14 @@ public class Grow : MonoBehaviour {
 
     float avgLum = 0;
     public float avgSamples = 30;
+    int cap;
     // Start is called before the first frame update
     void Start() {
         animator.Play(sheets[Random.Range(0, sheets.Count)]);
         animator.Stop();
         sprite.flipX = Random.value > 0.5f;
+        cap = Random.Range(0, 3);
+        responsiveness += (Random.value - 0.5f) * 0.1f;
     }
 
     // Update is called once per frame
@@ -26,9 +29,8 @@ public class Grow : MonoBehaviour {
         avgLum *= (avgSamples - 1) / avgSamples;
         //add one nth of the current lum
         avgLum += lum * (1 / avgSamples);
-        // avgLum = (avgLum + lum) * ((avgSamples - 1) / avgSamples);
-
-        animator.frame = (int)Helpers.Map(avgLum, 0, responsiveness, 0, animator.mySheet.count);
+        float clampedAvgLum = Mathf.Clamp(avgLum, 0, responsiveness);
+        animator.frame = (int)Helpers.Map(clampedAvgLum, 0, responsiveness, 0, animator.mySheet.count - 1 - cap);
     }
 
     public float GetLuminance() {
@@ -36,7 +38,7 @@ public class Grow : MonoBehaviour {
         foreach (Transform light in GameManager.instance.lights) {
             float dist = Vector2.Distance(light.position, transform.position);
             float min = Mathf.Min(responsiveness, dist);
-            float lum = (responsiveness - min);
+            float lum = responsiveness - min;
             luminance += lum;
         }
         return luminance;
