@@ -31,6 +31,7 @@ public class Character : StateMachine {
 
     // Start is called before the first frame update
     void Start() {
+        GameManager.instance.lights.Add(transform);
         Set(groundControl);
     }
 

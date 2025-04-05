@@ -10,7 +10,7 @@ public class LevelZoomer : MonoBehaviour {
     public SimpleAnimation anim;
     // Start is called before the first frame update
     void Start() {
-        anim = new SimpleAnimation(0, 1, 0.6f, SimpleAnimation.Curve.EaseInOut, false, false);
+        anim = new SimpleAnimation(0, 1, 0.6f, SimpleAnimation.Curve.EaseInOut, false, true);
         SetLevel(0);
 
     }
@@ -19,6 +19,7 @@ public class LevelZoomer : MonoBehaviour {
     void Update() {
         HandleInput();
         HandleAnimation();
+        Time.timeScale = anim.animating ? 0.1f : 1f;
     }
 
     public void HandleInput() {

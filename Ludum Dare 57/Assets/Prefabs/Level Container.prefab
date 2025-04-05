@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 6054112341331223943}
   - component: {fileID: 9174641555896950972}
   - component: {fileID: 4166677986734985968}
+  - component: {fileID: 2094689346473118961}
   m_Layer: 6
   m_Name: Level Container
   m_TagString: Untagged
@@ -432,6 +433,23 @@ MonoBehaviour:
   geometryRenderer: {fileID: 6054112341331223943}
   backgroundRenderer: {fileID: 5463141711644612147}
   mask: {fileID: 7622987255398890353}
+  collider2D: {fileID: 0}
+--- !u!114 &2094689346473118961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769539606533381266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa28463c1b49cf44b5aef8a5dc98f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelSolidCondition:
+    Channel: 0
+    Condition: 0
+    Threshold: 0.5
 --- !u!1 &8544195964042245164
 GameObject:
   m_ObjectHideFlags: 0
