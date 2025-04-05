@@ -52,7 +52,9 @@ public class LevelZoomer : MonoBehaviour {
         float levelDelta = Mathf.Max(0, (anim.value + 1) - index);
         float inverseDelta = index - anim.value;
         if (index >= current) {
-            level.transform.localScale = Vector3.one * (Mathf.Max(0, (1 - (inverseDelta * 0.33f))));
+
+            float shrink = (1 - (inverseDelta * 0.33f));
+            level.transform.localScale = Vector3.one * (Mathf.Max(0, shrink));
         } else {
             level.transform.localScale = Vector3.one * levelDelta;
         }
@@ -60,8 +62,10 @@ public class LevelZoomer : MonoBehaviour {
         float visibility = Helpers.Map(levelDelta, 1, 2, 1, 0, true);
 
         foreach (SpriteRenderer s in level.GetComponentsInChildren<SpriteRenderer>()) {
-            s.color = new Color(1, 1, 1, visibility);
+            s.color = new Color(s.color.r, s.color.g, s.color.b, visibility);
         }
+
+        level.GetComponentInChildren<Collider2D>().enabled = index == current;
 
     }
 }
