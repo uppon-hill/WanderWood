@@ -120,7 +120,6 @@ public class LevelContainer : MonoBehaviour {
         allMessRenderers.Remove(geometryRenderer);
         allMessRenderers.Remove(backgroundRenderer);
         allMessRenderers.Remove(mask.GetComponent<SpriteRenderer>());
-
         foreach (SpriteRenderer r in allMessRenderers) {
             r.sortingOrder += order;
         }

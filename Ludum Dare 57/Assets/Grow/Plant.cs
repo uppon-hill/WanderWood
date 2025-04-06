@@ -4,6 +4,8 @@ using UnityEngine;
 using Retro;
 using UnityEngine.UI;
 public class Plant : MonoBehaviour, IContainable {
+
+    public Color activeColour;
     public LevelContainer container { get; set; }
     public float responsiveness = 2f;
     public RetroAnimator animator;
@@ -27,7 +29,7 @@ public class Plant : MonoBehaviour, IContainable {
         responsiveness += (Random.value - 0.5f) * 0.1f;
 
         container.plants.Add(this);
-
+        animator.spriteRenderer.color = activeColour;
     }
 
     // Update is called once per frame
@@ -56,18 +58,19 @@ public class Plant : MonoBehaviour, IContainable {
     public float GetLuminance() {
         float luminance = 0;
         foreach (Transform light in GameManager.i.lights) {
-            if (light.GetComponent<IContainable>() is IContainable containable) {
-                bool playerCarryingOrb = containable == GameManager.i.selectedOrb;
-                bool onThisLevel = GameManager.i.zoomer.currentLevel == container;
-                //if the light is not on this level
-                if (containable.container != container && !(playerCarryingOrb && onThisLevel)) {
-                    continue;
+            if (light.GetComponent<IContainable>() is Orb o) {
+                if (o.activeColour == activeColour) {
+                    bool playerCarryingOrb = o == GameManager.i.selectedOrb;
+                    bool onThisLevel = GameManager.i.zoomer.currentLevel == container;
+                    //if the light is not on this level
+                    if (o.container == container || playerCarryingOrb && onThisLevel) {
+                        float dist = Vector2.Distance(light.position, transform.position);
+                        float min = Mathf.Min(responsiveness, dist);
+                        float lum = responsiveness - min;
+                        luminance += lum;
+                    }
                 }
             }
-            float dist = Vector2.Distance(light.position, transform.position);
-            float min = Mathf.Min(responsiveness, dist);
-            float lum = responsiveness - min;
-            luminance += lum;
         }
         return luminance;
     }

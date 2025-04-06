@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Orb : MonoBehaviour, IContainable {
+    public Color activeColour;
     public float speed;
     public float offset;
     float randomTimeStart;
     float startTime = 0;
     float t => randomTimeStart + Time.time - startTime;
+
+    public Retro.RetroAnimator animator;
+    public Retro.Sheet world;
+    public Retro.Sheet held;
+
     public LevelContainer container {
         get { return c; }
         set {
             c = value;
             if (value != null) {
-                sprite.sortingOrder = value.sortingOrder;
+                sprite.sortingOrder = 0;
             } else {
                 sprite.sortingOrder = 0;
             }
@@ -29,6 +35,7 @@ public class Orb : MonoBehaviour, IContainable {
         GameManager.i.onSelect.AddListener(TryClick);
         randomTimeStart = Random.value * 100;
         GameManager.i.lights.Add(transform);
+        animator.spriteRenderer.color = activeColour;
 
     }
 
@@ -36,8 +43,10 @@ public class Orb : MonoBehaviour, IContainable {
     void Update() {
 
         if (GameManager.i.selectedOrb == this) {
+            animator.Play(held);
             transform.localPosition = Vector2.zero;
         } else {
+            animator.Play(world);
             Breathe();
         }
     }

@@ -9,8 +9,8 @@ public class Character : StateMachine {
     public new Rigidbody2D body;
     public new RetroAnimator animator;
     public BoxCollider2D bodyCollider;
-
     public Transform orbSlot;
+    public AudioSource audioSource;
     public float velX {
         get { return body.velocity.x; }
         set { body.velocity = new(value, body.velocity.y); }
@@ -42,6 +42,11 @@ public class Character : StateMachine {
     // Update is called once per frame
     void Update() {
         if (state.complete) {
+            if ((state == airControl || state == hurt) && IsGrounded()) {
+                groundControl.Step();
+            }
+
+
             if (IsGrounded()) {
                 Set(groundControl);
             } else {
@@ -98,6 +103,8 @@ public class Character : StateMachine {
     public void Hurt() {
         Set(hurt, true);
     }
+
+
 }
 
 

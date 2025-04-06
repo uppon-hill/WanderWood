@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2845985366081682618}
   - component: {fileID: 7675821292931395977}
   - component: {fileID: 7234071402608841286}
+  - component: {fileID: 8709851048734681361}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -77,8 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02ced96278747f4eadb9751d446aa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  activeColour: {r: 0.9450981, g: 0.9725491, b: 0.9607844, a: 1}
+  speed: 2
   offset: 0.04
+  animator: {fileID: 8709851048734681361}
+  world: {fileID: 11400000, guid: fdf1e566ee67b0d40a8d88a7149704d3, type: 2}
+  held: {fileID: 11400000, guid: 66deb0342444d904d8b906eaf1bc7b3f, type: 2}
   sprite: {fileID: 7234071402608841286}
   clickRadius: 0.16
 --- !u!212 &7234071402608841286
@@ -133,3 +138,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8709851048734681361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980908459724216082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a78c4ed054a32418fc9abbfb970917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferences: {fileID: 0}
+  applyFramePropertiesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  rigidBody: {fileID: 0}
+  spriteRenderer: {fileID: 7234071402608841286}
+  mySheet: {fileID: 11400000, guid: fdf1e566ee67b0d40a8d88a7149704d3, type: 2}
+  dbg: 0
+  initialised: 0
+  frame: 0
+  frameRate: 10
+  isPlaying: 1
+  paused: 0
+  looping: 0
+  ignoreTimeScale: 0
+  randomFrameStart: 0
+  pixelPerfect: 0
+  timeKind: 0
+  finished:
+    m_PersistentCalls:
+      m_Calls: []
+  positions: []
+  offsets: []

@@ -123,14 +123,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Game Levels
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5010395, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 480
+      width: 481
       height: 270
     spriteID: 206410d164d6321479c967cc09b47121
     spriteBone: []
@@ -154,9 +154,9 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: -1
         y: 0
-        width: 480
+        width: 481
         height: 270
       spriteId: 206410d164d6321479c967cc09b47121
     linkedCells: []

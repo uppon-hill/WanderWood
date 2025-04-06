@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74690695c846e4ea0fb1e707b9f4d6, type: 3}
+  m_Name: orb-world
+  m_EditorClassIdentifier: 
+  version: 1.0
+  spriteList:
+  - {fileID: 6646326603298846073, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  - {fileID: 8680432138994076188, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  - {fileID: -3411089848308295035, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  - {fileID: -352953858597685786, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  - {fileID: -1902748376516441459, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  - {fileID: -8817868126944374019, guid: a0e371ea0e96d0340a0f67d94197ed80, type: 3}
+  propertiesList:
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  groups: []
+  layers: []

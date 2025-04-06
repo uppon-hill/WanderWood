@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74690695c846e4ea0fb1e707b9f4d6, type: 3}
+  m_Name: orb-collected
+  m_EditorClassIdentifier: 
+  version: 1.0
+  spriteList:
+  - {fileID: 2475828975778611403, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: -748438734759182266, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: 8674040341764921874, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: 4829679522099029192, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: 8769990771808129178, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: -5032971452081945856, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: -4028080000156165101, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  - {fileID: -3830021563249491782, guid: 34f7fb38063259c4f928b081110b12be, type: 3}
+  propertiesList:
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  groups: []
+  layers: []

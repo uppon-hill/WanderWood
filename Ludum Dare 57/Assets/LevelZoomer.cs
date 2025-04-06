@@ -1,10 +1,14 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
 
 public class LevelZoomer : MonoBehaviour {
+    public AudioSource audioSource;
+    public AudioClip shiftUp;
+    public AudioClip shiftDown;
+    public AudioClip bounce;
 
     public List<LevelContainer> levels;
     public int current;
@@ -60,6 +64,16 @@ public class LevelZoomer : MonoBehaviour {
             if (keyPressed && hasMoreLayers) {
                 if (clear) {
                     anim.duration = 0.6f;
+
+                    //pitch should go up one whole musical note tone for each level
+                    float hz = 440f * Mathf.Pow(2, (next) / 12f);
+                    audioSource.pitch = hz / 440f;
+                    if (next > current) {
+                        audioSource.PlayOneShot(shiftUp);
+                    } else {
+                        audioSource.PlayOneShot(shiftDown);
+                    }
+
                     SetLevel(next);
                 } else {
                     prev = current;
@@ -132,7 +146,8 @@ public class LevelZoomer : MonoBehaviour {
         }
 
         if (GameManager.i.shouldBounce) {
-
+            audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
+            audioSource.PlayOneShot(bounce);
             GameManager.i.cameraShaker.Shake(0.05f);
             GameManager.i.zoomer.SetLevel(prev, SimpleAnimation.Curve.Decelerate);
             GameManager.i.shouldBounce = false;
