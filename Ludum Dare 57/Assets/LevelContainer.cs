@@ -17,6 +17,8 @@ public class LevelContainer : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
+
+
         backgroundRenderer.sortingOrder = geometryRenderer.sortingOrder;
         mask.frontSortingOrder = geometryRenderer.sortingOrder;
         mask.backSortingOrder = geometryRenderer.sortingOrder - 1;
@@ -31,6 +33,7 @@ public class LevelContainer : MonoBehaviour {
             c.container = this;
         }
 
+        geometryRenderer.material = new Material(geometryRenderer.material);
         SetGeometry(IsCurrentIndex());
     }
 
@@ -61,5 +64,9 @@ public class LevelContainer : MonoBehaviour {
 
     public bool Navigable() {
         return !shadow.OverlapsCollider();
+    }
+
+    public void SetShadowAlpha(float a) {
+        geometryRenderer.material.SetFloat("_ShadowAmount", a);
     }
 }

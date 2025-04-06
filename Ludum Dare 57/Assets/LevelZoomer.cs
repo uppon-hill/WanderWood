@@ -75,5 +75,8 @@ public class LevelZoomer : MonoBehaviour {
         level.SetAlpha(visibility);
         level.SetGeometry(index == current && !anim.animating);
 
+        float shadowDelta = (index - 1) - anim.value;
+        float shadowAlpha = Helpers.Map(shadowDelta, 1, 0, 0, 1);
+        level.SetShadowAlpha(shadowAlpha);
     }
 }
