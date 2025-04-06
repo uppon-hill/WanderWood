@@ -15,7 +15,21 @@ MonoBehaviour:
   version: 1.0
   spriteList:
   - {fileID: 6612508691864380823, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: -167425448, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: -1997513656, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: -1534803291, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: 677599180, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: -32173943, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: 1993408294, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
+  - {fileID: -1801293125, guid: 62ab4f86cd6eb944e98f2206b4fa7b1f, type: 3}
   propertiesList:
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
   - frameProperties: []
   groups: []
   layers: []

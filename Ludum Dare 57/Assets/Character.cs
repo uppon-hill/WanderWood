@@ -23,6 +23,7 @@ public class Character : StateMachine {
 
     public GroundControl groundControl;
     public AirControl airControl;
+    public HurtState hurt;
     void Awake() {
 
         StateMachine[] allMachines = GetComponentsInChildren<StateMachine>();
@@ -33,7 +34,7 @@ public class Character : StateMachine {
 
     // Start is called before the first frame update
     void Start() {
-        GameManager.i.lights.Add(transform);
+        //  GameManager.i.lights.Add(transform);
         Set(groundControl);
         GameManager.i.character = this;
     }
@@ -92,6 +93,10 @@ public class Character : StateMachine {
         Collider2D[] cols = Physics2D.OverlapBoxAll(transform.position, size, 0, LayerMask.GetMask("Ground"));
 
         return cols.Length > 0;
+    }
+
+    public void Hurt() {
+        Set(hurt, true);
     }
 }
 

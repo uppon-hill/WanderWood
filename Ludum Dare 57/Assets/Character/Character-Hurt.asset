@@ -10,17 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a74690695c846e4ea0fb1e707b9f4d6, type: 3}
-  m_Name: Character-Fall
+  m_Name: Character-Hurt
   m_EditorClassIdentifier: 
   version: 1.0
   spriteList:
-  - {fileID: -8182125102611321826, guid: 5547a6c39c2b0d44788a353769cc0667, type: 3}
-  - {fileID: 1920681547, guid: 5547a6c39c2b0d44788a353769cc0667, type: 3}
-  - {fileID: 1564959460, guid: 5547a6c39c2b0d44788a353769cc0667, type: 3}
+  - {fileID: -915000023768074354, guid: 1e9946c1cb0a87547a3d00809dbfc196, type: 3}
   propertiesList:
-  - frameProperties: []
-  - frameProperties: []
-  - frameProperties: []
   - frameProperties: []
   groups: []
   layers: []

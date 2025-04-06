@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  offset: 0.1
+  offset: 0.04
   sprite: {fileID: 7234071402608841286}
   clickRadius: 0.16
 --- !u!212 &7234071402608841286

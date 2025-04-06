@@ -41,7 +41,8 @@ public class AirControl : State {
 
 
     void SetFrame() {
-        int frame = (int)Helpers.Map(core.velY, -terminal, terminal, 0, fall.count - 1);
+        int frame = (int)Helpers.Map(core.velY, terminal * 0.7f, -terminal * 0.7f, 0, fall.count - 1);
+
         animator.frame = frame;
     }
 }

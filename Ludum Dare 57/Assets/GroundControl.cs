@@ -14,7 +14,7 @@ public class GroundControl : State {
         if (x != 0) {
             core.velX = Mathf.Sign(x) * speed;
             core.FaceDirection(new Vector2(x, 1));
-            animator.Play(run);
+            animator.Play(run, 12, true, false);
         } else {
             animator.Play(idle);
         }

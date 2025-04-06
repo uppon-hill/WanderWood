@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class LevelZoomer : MonoBehaviour {
@@ -29,35 +30,50 @@ public class LevelZoomer : MonoBehaviour {
         HandleInput();
         HandleAnimation();
         Time.timeScale = anim.animating ? 0.05f : 1f;
-
-
     }
 
     public void HandleInput() {
         if (Mathf.Abs(anim.value - anim.targetValue) < 0.1f) {
+            int next = current;
+            bool navigable = false;
+            bool keyPressed = false;
+            bool hasMoreLayers = false;
+            bool clear = false;
             if (Input.GetKeyDown(KeyCode.UpArrow)) {
 
-                bool hasMoreLayers = current < levels.Count - 1;
-                bool nextLayerNavigable = hasMoreLayers && levels[current + 1].Navigable();
+                hasMoreLayers = current < levels.Count - 1;
+                navigable = hasMoreLayers && levels[current + 1].Navigable();
+                next = current + 1;
+                keyPressed = true;
+                clear = levels[current].ClearOfFog();
 
-                SetLevel(current + 1);
-                if (!nextLayerNavigable) {
-                    GameManager.i.shouldBounce = true;
-                }
-
-            } else if (Input.GetKeyDown(KeyCode.DownArrow) && current > 0) {
-                bool hasLowerLayers = current > 0;
-                bool prevLayerNavigable = hasLowerLayers && levels[current - 1].Navigable();
-
-                SetLevel(current - 1);
-                if (!prevLayerNavigable) {
-                    GameManager.i.shouldBounce = true;
-                }
+            } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                hasMoreLayers = current > 0;
+                navigable = hasMoreLayers && levels[current - 1].Navigable();
+                next = current - 1;
+                keyPressed = true;
+                clear = true;//levels[current - 1].ClearOfFog();
 
             }
+
+
+            if (keyPressed && hasMoreLayers) {
+                if (clear) {
+                    anim.duration = 0.6f;
+                    SetLevel(next);
+                } else {
+                    prev = current;
+                    anim.duration = 0.3f;
+                    SetPartialLevel(current + (next - current) * 0.1f);
+                }
+
+                if (!navigable || !clear) {
+                    GameManager.i.shouldBounce = true;
+                }
+            }
+
         }
     }
-
 
     void HandleAnimation() {
         if (anim.animating) {
@@ -73,6 +89,11 @@ public class LevelZoomer : MonoBehaviour {
         anim.Play(anim.value, nextLevel, true);
         prev = current;
         current = nextLevel;
+    }
+
+    public void SetPartialLevel(float nextLevel, SimpleAnimation.Curve curve = SimpleAnimation.Curve.EaseInOut) {
+        anim.SetFunction(curve);
+        anim.Play(anim.value, nextLevel, false);
     }
 
     void SetLevelDepth(LevelContainer level) {
@@ -96,13 +117,27 @@ public class LevelZoomer : MonoBehaviour {
         float shadowDelta = (index - 1) - anim.value;
         float shadowAlpha = Helpers.Map(shadowDelta, 1, 0, 0, 1);
         level.SetShadowAlpha(shadowAlpha);
+
+        float indexDelta = Mathf.Clamp01(index - anim.value);
+        //Debug.Log("setting shadowAlpha to ")
+        level.SetFogShadowAlpha(1 - indexDelta);
+        level.fogAlpha = (1 - indexDelta * 0.5f);
+
     }
 
     void FinishAnimation(SimpleAnimation a) {
+
+        if (!levels[current].ClearOfFog() && prev > current) {
+            GameManager.i.shouldBounce = true;
+        }
+
         if (GameManager.i.shouldBounce) {
+
             GameManager.i.cameraShaker.Shake(0.05f);
             GameManager.i.zoomer.SetLevel(prev, SimpleAnimation.Curve.Decelerate);
             GameManager.i.shouldBounce = false;
+            GameManager.i.character.Hurt();
+
         }
     }
 }
