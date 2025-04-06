@@ -22,7 +22,7 @@ public class Shaker : MonoBehaviour {
         }
     }
 
-    public void Shake() {
-        anim.Play(0, shakeAmount, true);
+    public void Shake(float customAmount = 0) {
+        anim.Play(0, customAmount == 0 ? shakeAmount : customAmount, true);
     }
 }

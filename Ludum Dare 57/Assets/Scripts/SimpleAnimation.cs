@@ -26,6 +26,8 @@ public class SimpleAnimation {
     public bool justFinished;
     public bool interrupted;
 
+    public float t { get { return elapsedTime / duration; } }
+
     public class AnimationEvent : UnityEvent<SimpleAnimation> { }
 
     public AnimationEvent started;

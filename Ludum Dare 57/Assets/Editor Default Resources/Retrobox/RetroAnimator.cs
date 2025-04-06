@@ -400,7 +400,7 @@ namespace Retro {
 
         public Vector2 PixelPerfect() {
             float ppu = spriteRenderer.sprite.pixelsPerUnit;
-            return new Vector2(Mathf.Round(transform.position.x * ppu) / ppu, Mathf.Round(transform.position.y * ppu) / ppu);
+            return new Vector2((int)(transform.position.x * ppu) / ppu, (int)(transform.position.y * ppu) / ppu);
         }
 
         void ApplyProperties() { //applies any effects, frame properties and hitbox properties which occur on this frame.

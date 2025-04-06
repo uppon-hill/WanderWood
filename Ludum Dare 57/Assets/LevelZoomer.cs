@@ -7,11 +7,20 @@ public class LevelZoomer : MonoBehaviour {
 
     public List<LevelContainer> levels;
     public int current;
+    public int prev;
+    public LevelContainer currentLevel => levels[current];
+
     public SimpleAnimation anim;
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         anim = new SimpleAnimation(0, 1, 0.6f, SimpleAnimation.Curve.EaseInOut, false, true);
+        anim.finished.AddListener(FinishAnimation);
+    }
+    void Start() {
         SetLevel(0);
+        foreach (LevelContainer l in levels) {
+            l.SetSorting(-levels.IndexOf(l) * 10);
+        }
         GameManager.i.zoomer = this;
     }
 
@@ -19,7 +28,8 @@ public class LevelZoomer : MonoBehaviour {
     void Update() {
         HandleInput();
         HandleAnimation();
-        Time.timeScale = anim.animating ? 0.1f : 1f;
+        Time.timeScale = anim.animating ? 0.05f : 1f;
+
 
     }
 
@@ -30,18 +40,24 @@ public class LevelZoomer : MonoBehaviour {
                 bool hasMoreLayers = current < levels.Count - 1;
                 bool nextLayerNavigable = hasMoreLayers && levels[current + 1].Navigable();
 
-                if (nextLayerNavigable) {
-                    SetLevel(current + 1);
-                } else {
-                    GameManager.i.cameraShaker.Shake();
+                SetLevel(current + 1);
+                if (!nextLayerNavigable) {
+                    GameManager.i.shouldBounce = true;
                 }
 
             } else if (Input.GetKeyDown(KeyCode.DownArrow) && current > 0) {
+                bool hasLowerLayers = current > 0;
+                bool prevLayerNavigable = hasLowerLayers && levels[current - 1].Navigable();
+
                 SetLevel(current - 1);
+                if (!prevLayerNavigable) {
+                    GameManager.i.shouldBounce = true;
+                }
+
             }
         }
-
     }
+
 
     void HandleAnimation() {
         if (anim.animating) {
@@ -52,8 +68,10 @@ public class LevelZoomer : MonoBehaviour {
         }
     }
 
-    public void SetLevel(int nextLevel) {
+    public void SetLevel(int nextLevel, SimpleAnimation.Curve curve = SimpleAnimation.Curve.EaseInOut) {
+        anim.SetFunction(curve);
         anim.Play(anim.value, nextLevel, true);
+        prev = current;
         current = nextLevel;
     }
 
@@ -78,5 +96,13 @@ public class LevelZoomer : MonoBehaviour {
         float shadowDelta = (index - 1) - anim.value;
         float shadowAlpha = Helpers.Map(shadowDelta, 1, 0, 0, 1);
         level.SetShadowAlpha(shadowAlpha);
+    }
+
+    void FinishAnimation(SimpleAnimation a) {
+        if (GameManager.i.shouldBounce) {
+            GameManager.i.cameraShaker.Shake(0.05f);
+            GameManager.i.zoomer.SetLevel(prev, SimpleAnimation.Curve.Decelerate);
+            GameManager.i.shouldBounce = false;
+        }
     }
 }

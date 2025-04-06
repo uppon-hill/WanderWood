@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Retro;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Character : StateMachine {
     public new Rigidbody2D body;
     public new RetroAnimator animator;
     public BoxCollider2D bodyCollider;
 
+    public Transform orbSlot;
     public float velX {
         get { return body.velocity.x; }
         set { body.velocity = new(value, body.velocity.y); }
@@ -46,11 +48,34 @@ public class Character : StateMachine {
             }
         }
         DoBranch();
+        CheckNavigateLayerInput();
+        SetSortingOrder();
     }
+
 
     void FixedUpdate() {
         if (!state.complete) {
             DoFixedBranch();
+        }
+    }
+
+    void CheckNavigateLayerInput() {
+        if (!GameManager.i.zoomer.anim.animating) {
+
+            if (Input.GetKeyDown(KeyCode.Z)) {
+                if (GameManager.i.selectedOrb == null) {
+                    GameManager.i.Select();
+                } else {
+                    GameManager.i.Deselect();
+                }
+            }
+        }
+    }
+
+    void SetSortingOrder() {
+        if (GameManager.i.zoomer.anim.t > 0.5f && !GameManager.i.shouldBounce) {
+            int sortingOrder = GameManager.i.zoomer.currentLevel.sortingOrder - 1;
+            animator.spriteRenderer.sortingOrder = sortingOrder;
         }
     }
 

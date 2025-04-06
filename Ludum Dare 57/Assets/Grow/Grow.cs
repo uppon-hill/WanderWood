@@ -11,6 +11,10 @@ public class Grow : MonoBehaviour {
     float avgLum = 0;
     public float avgSamples = 30;
     int cap;
+
+    int maxFrame => animator.mySheet.count - 1 - cap;
+
+    ParticleSystem particleSystem;
     // Start is called before the first frame update
     void Start() {
         animator.Play(sheets[Random.Range(0, sheets.Count)]);
@@ -30,7 +34,13 @@ public class Grow : MonoBehaviour {
         //add one nth of the current lum
         avgLum += lum * (1 / avgSamples);
         float clampedAvgLum = Mathf.Clamp(avgLum, 0, responsiveness);
-        animator.frame = (int)Helpers.Map(clampedAvgLum, 0, responsiveness, 0, animator.mySheet.count - 1 - cap);
+        animator.frame = (int)Helpers.Map(clampedAvgLum, 0, responsiveness, 0, maxFrame);
+
+        if (animator.frame == maxFrame) {
+            //turn emission on
+            var emission = particleSystem.emission;
+            emission.enabled = true;
+        }
     }
 
     public float GetLuminance() {

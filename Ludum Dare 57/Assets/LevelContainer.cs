@@ -1,37 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
+using Unity.VisualScripting;
 public class LevelContainer : MonoBehaviour {
+    public Color layerColor;
     public SpriteRenderer geometryRenderer;
     public SpriteRenderer backgroundRenderer;
     public SpriteMask mask;
     public PolygonCollider2D geometry;
     Collider2D[] allColliders;
-    SpriteRenderer[] allRenderers;
+    List<SpriteRenderer> allRenderers;
+    List<SpriteRenderer> allMessRenderers;
     CharacterShadow shadow;
     public int sortingOrder { get { return geometryRenderer.sortingOrder; } }
 
     void Awake() {
         shadow = GetComponentInChildren<CharacterShadow>();
-    }
-    // Start is called before the first frame update
-    void Start() {
-
-
-        backgroundRenderer.sortingOrder = geometryRenderer.sortingOrder;
-        mask.frontSortingOrder = geometryRenderer.sortingOrder;
-        mask.backSortingOrder = geometryRenderer.sortingOrder - 1;
-
-        allRenderers = GetComponentsInChildren<SpriteRenderer>();
-        allColliders = GetComponentsInChildren<Collider2D>();
-
-        geometry = GetComponent<PolygonCollider2D>();
-
         IContainable[] containables = GetComponentsInChildren<IContainable>();
         foreach (IContainable c in containables) {
             c.container = this;
         }
+
+    }
+    // Start is called before the first frame update
+    void Start() {
+        //backgroundRenderer.sortingOrder = geometryRenderer.sortingOrder;
+        //mask.frontSortingOrder = geometryRenderer.sortingOrder;
+        //mask.backSortingOrder = geometryRenderer.sortingOrder - 1;
+
+        allColliders = GetComponentsInChildren<Collider2D>();
+
+        geometry = GetComponent<PolygonCollider2D>();
+
 
         geometryRenderer.material = new Material(geometryRenderer.material);
         SetGeometry(IsCurrentIndex());
@@ -68,5 +69,32 @@ public class LevelContainer : MonoBehaviour {
 
     public void SetShadowAlpha(float a) {
         geometryRenderer.material.SetFloat("_ShadowAmount", a);
+    }
+
+    public void AddRenderer(SpriteRenderer r) {
+        allRenderers.Add(r);
+    }
+    public void RemoveRenderer(SpriteRenderer r) {
+        allRenderers.Remove(r);
+    }
+
+    public void SetSorting(int order) {
+        //assigns sorting order
+        geometryRenderer.sortingOrder = order;
+        backgroundRenderer.sortingOrder = order - 1;
+        mask.frontSortingOrder = order;
+        mask.backSortingOrder = order - 9;
+
+        allRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
+        allMessRenderers = allRenderers.ToList();
+
+        allMessRenderers.Remove(geometryRenderer);
+        allMessRenderers.Remove(backgroundRenderer);
+        allMessRenderers.Remove(mask.GetComponent<SpriteRenderer>());
+
+        foreach (SpriteRenderer r in allMessRenderers) {
+            r.sortingOrder += order;
+        }
+
     }
 }

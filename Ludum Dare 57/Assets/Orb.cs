@@ -6,20 +6,40 @@ public class Orb : MonoBehaviour, IContainable {
     public float speed;
     public float offset;
     float randomTimeStart;
-    float t => randomTimeStart + Time.time;
-    public LevelContainer container { get; set; }
+    float startTime = 0;
+    float t => randomTimeStart + Time.time - startTime;
+    public LevelContainer container {
+        get { return c; }
+        set {
+            c = value;
+            if (value != null) {
+                sprite.sortingOrder = value.sortingOrder;
+            } else {
+                sprite.sortingOrder = 0;
+            }
+        }
+    }
+    LevelContainer c;
+    public SpriteRenderer sprite;
 
-    float clickRadius = 0.08f;
+    public float clickRadius = 0.08f;
+
     // Start is called before the first frame update
     void Start() {
-        GameManager.i.pointer.onSelect.AddListener(TryClick);
+        GameManager.i.onSelect.AddListener(TryClick);
         randomTimeStart = Random.value * 100;
         GameManager.i.lights.Add(transform);
+
     }
 
     // Update is called once per frame
     void Update() {
-        Breathe();
+
+        if (GameManager.i.selectedOrb == this) {
+            transform.localPosition = Vector2.zero;
+        } else {
+            Breathe();
+        }
     }
 
 
@@ -31,12 +51,23 @@ public class Orb : MonoBehaviour, IContainable {
         transform.localPosition = Helpers.PixelPerfect(Vector2.up * Mathf.Sin(t * speed) * offset);
     }
 
-    void TryClick(Pointer p) {
+    void TryClick(Transform selector) {
         bool onLayer = container == null || container.IsCurrentIndex();
 
-        if (Vector2.Distance(p.transform.position, transform.position) < clickRadius && onLayer) {
+        if (Vector2.Distance(selector.transform.position, transform.position) < clickRadius && onLayer) {
             GameManager.i.SelectOrb(this);
         }
+    }
+    public void Reparent(Transform parent) {
+        transform.parent.SetParent(parent);
+        if (parent.GetComponent<LevelContainer>() != null) {
+            container = parent.GetComponent<LevelContainer>();
+            sprite.sortingOrder = container.sortingOrder;
+        } else {
+            container = null;
+        }
+        randomTimeStart = 0;
+        startTime = Time.time;
     }
 
 }
