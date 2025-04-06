@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2535163108784590984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2940022392934521591}
   - component: {fileID: 1181083650037109765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2006465471
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1220665540363653604, guid: 0fc45280ab9974e419bd9ce44d74a306, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6880021319030136503}
   - component: {fileID: 5934316110400833227}
   - component: {fileID: 3122790246563254420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7642355689745555642}
   - component: {fileID: 8445684596238346371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,8 +308,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.32}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.12, y: 0.28}
+  m_EdgeRadius: 0.02
 --- !u!1 &4695716811183048995
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7728796430306650473}
   - component: {fileID: 6240198243725928952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657171838819207135}
   - component: {fileID: 8060685457501057557}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Air Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}

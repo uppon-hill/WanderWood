@@ -35,7 +35,7 @@ public class Grow : MonoBehaviour {
 
     public float GetLuminance() {
         float luminance = 0;
-        foreach (Transform light in GameManager.instance.lights) {
+        foreach (Transform light in GameManager.i.lights) {
             float dist = Vector2.Distance(light.position, transform.position);
             float min = Mathf.Min(responsiveness, dist);
             float lum = responsiveness - min;

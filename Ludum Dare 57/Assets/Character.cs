@@ -31,8 +31,9 @@ public class Character : StateMachine {
 
     // Start is called before the first frame update
     void Start() {
-        GameManager.instance.lights.Add(transform);
+        GameManager.i.lights.Add(transform);
         Set(groundControl);
+        GameManager.i.character = this;
     }
 
     // Update is called once per frame

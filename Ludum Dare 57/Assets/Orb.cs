@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Orb : MonoBehaviour {
+public class Orb : MonoBehaviour, IContainable {
     public float speed;
     public float offset;
     float randomTimeStart;
     float t => randomTimeStart + Time.time;
+    public LevelContainer container { get; set; }
 
     float clickRadius = 0.08f;
     // Start is called before the first frame update
     void Start() {
-        GameManager.instance.pointer.onSelect.AddListener(TryClick);
+        GameManager.i.pointer.onSelect.AddListener(TryClick);
         randomTimeStart = Random.value * 100;
-        GameManager.instance.lights.Add(transform);
+        GameManager.i.lights.Add(transform);
     }
 
     // Update is called once per frame
@@ -31,8 +32,11 @@ public class Orb : MonoBehaviour {
     }
 
     void TryClick(Pointer p) {
-        if (Vector2.Distance(p.transform.position, transform.position) < clickRadius) {
-            GameManager.instance.SelectOrb(this);
+        bool onLayer = container == null || container.IsCurrentIndex();
+
+        if (Vector2.Distance(p.transform.position, transform.position) < clickRadius && onLayer) {
+            GameManager.i.SelectOrb(this);
         }
     }
+
 }

@@ -523,7 +523,7 @@ public static class Helpers {
     }
 
 
-    public static Color GetColourWithAlpha(Color col, float alpha) {
+    public static Color AssignAlpha(Color col, float alpha) {
         return new Color(col.r, col.g, col.b, alpha);
     }
 }

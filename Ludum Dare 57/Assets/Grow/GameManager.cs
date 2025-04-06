@@ -4,14 +4,15 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour {
     public List<Transform> lights;
-    public static GameManager instance;
-
+    public static GameManager i;
+    public LevelZoomer zoomer;
     public Pointer pointer;
     public Orb selectedOrb;
-
+    public Character character;
+    public Shaker cameraShaker;
     public void Awake() {
-        if (instance == null) {
-            instance = this;
+        if (i == null) {
+            i = this;
         } else {
             Destroy(gameObject);
         }

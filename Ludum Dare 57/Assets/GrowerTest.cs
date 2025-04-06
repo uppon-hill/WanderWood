@@ -7,7 +7,7 @@ public class GrowerTest : MonoBehaviour {
     public Vector2Int gridSize = new Vector2Int(10, 10);
     public float cellsize = 0.32f;
     // Start is called before the first frame update
-    void Start() {
+    public void Awake() {
         //spawn a grid of grower prefabs
         for (int x = 0; x < gridSize.x; x++) {
             for (int y = 0; y < gridSize.y; y++) {

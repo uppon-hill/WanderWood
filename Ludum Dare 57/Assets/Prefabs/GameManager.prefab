@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a761d8900b29343a45eef8f90f7372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 0}
+  lights: []
   pointer: {fileID: 0}
   selectedOrb: {fileID: 0}
 --- !u!1 &6382466321545145306

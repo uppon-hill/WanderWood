@@ -8,11 +8,11 @@ public class Pointer : MonoBehaviour {
     public UnityEvent<Pointer> onSelect;
     // Start is called before the first frame update
     void Awake() {
-        GameManager.instance.pointer = this;
+        GameManager.i.pointer = this;
     }
 
     void Start() {
-        GameManager.instance.lights.Add(transform);
+        GameManager.i.lights.Add(transform);
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class Pointer : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
         if (Input.GetMouseButtonDown(0)) {
-            if (GameManager.instance.selectedOrb == null) {
+            if (GameManager.i.selectedOrb == null) {
                 Select();
             } else {
                 Deselect();
@@ -40,6 +40,6 @@ public class Pointer : MonoBehaviour {
     }
 
     void Deselect() {
-        GameManager.instance.DeselectOrb();
+        GameManager.i.DeselectOrb();
     }
 }

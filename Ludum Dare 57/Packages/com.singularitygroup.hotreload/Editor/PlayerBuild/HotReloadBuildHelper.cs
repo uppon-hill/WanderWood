@@ -37,7 +37,7 @@ namespace SingularityGroup.HotReload.Editor {
             }
 #pragma warning restore CS0618
         }
-        
+
         public static void SetCurrentStrippingLevel(ManagedStrippingLevel to) {
 #pragma warning disable CS0618
             // only set it if default is not correct (avoid changing ProjectSettings when not needed)
@@ -50,10 +50,10 @@ namespace SingularityGroup.HotReload.Editor {
         /// Is the current build target supported?
         /// main thread only
         public static bool IsBuildTargetSupported() {
-            var buildTarget = EditorUserBuildSettings.selectedBuildTargetGroup;  
+            var buildTarget = EditorUserBuildSettings.selectedBuildTargetGroup;
             return Array.IndexOf(unsupportedBuildTargets, buildTarget) == -1;
         }
-        
+
         /// Are all the settings supported?
         /// main thread only
         static bool IsAllBuildSettingsSupported() {
@@ -64,7 +64,7 @@ namespace SingularityGroup.HotReload.Editor {
             // need way to give it settings object, dont want to give serializedobject
             var options = HotReloadSettingsEditor.LoadSettingsOrDefault();
             var so = new SerializedObject(options);
-            
+
             // check all projeect options
             foreach (var option in HotReloadSettingsTab.allOptions) {
                 var projectOption = option as ProjectOptionBase;
@@ -87,11 +87,11 @@ namespace SingularityGroup.HotReload.Editor {
         /// <remarks>
         /// Only list the platforms that definately don't have Mono scripting.
         /// </remarks>
-        private static readonly BuildTargetGroup[] unsupportedBuildTargets = new [] {
+        private static readonly BuildTargetGroup[] unsupportedBuildTargets = new[] {
             BuildTargetGroup.iOS, // mono support was removed many years ago
             BuildTargetGroup.WebGL, // has never had mono
         };
-        
+
 #pragma warning disable CS0618
         public static bool IsMonoSupported(BuildTargetGroup buildTarget) {
             var backend = PlayerSettings.GetScriptingBackend(buildTarget);
