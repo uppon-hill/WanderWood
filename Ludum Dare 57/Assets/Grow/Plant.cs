@@ -45,9 +45,9 @@ public class Plant : MonoBehaviour, IContainable {
         //add one nth of the current lum
         avgLum += lum * (1 / avgSamples);
         float clampedAvgLum = Mathf.Clamp(avgLum, 0, responsiveness);
-        animator.frame = (int)Helpers.Map(clampedAvgLum, 0, responsiveness, 0, maxFrame);
+        animator.frame = (int)Helpers.Map(clampedAvgLum, 0, responsiveness / 2f, 0, maxFrame, true);
 
-        fogMask.transform.localScale = Vector2.one * avgLum * 4f;
+        fogMask.transform.localScale = Vector2.one * avgLum * 3f;
 
     }
 
@@ -60,6 +60,7 @@ public class Plant : MonoBehaviour, IContainable {
         foreach (Transform light in GameManager.i.lights) {
             if (light.GetComponent<IContainable>() is Orb o) {
                 if (o.activeColour == activeColour) {
+                    o.createdPortal = true;
                     bool playerCarryingOrb = o == GameManager.i.selectedOrb;
                     bool onThisLevel = GameManager.i.zoomer.currentLevel == container;
                     //if the light is not on this level

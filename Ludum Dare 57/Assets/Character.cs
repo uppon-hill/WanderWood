@@ -69,12 +69,16 @@ public class Character : StateMachine {
         if (!GameManager.i.zoomer.anim.animating) {
 
             if (Input.GetKeyDown(KeyCode.Z)) {
-                if (GameManager.i.selectedOrb == null) {
-                    GameManager.i.Select();
-                } else {
-                    GameManager.i.Deselect();
-                }
+                TrySelectOrb();
             }
+        }
+    }
+
+    public void TrySelectOrb() {
+        if (GameManager.i.selectedOrb == null) {
+            GameManager.i.Select();
+        } else {
+            GameManager.i.Deselect();
         }
     }
 

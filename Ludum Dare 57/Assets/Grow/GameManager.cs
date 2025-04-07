@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-
+    public AudioSource musicSource;
+    public Text text;
     public AudioSource audioSource;
+    public AudioClip minorVictory;
+    public AudioClip majorVictory;
     public AudioClip orbGet;
     public AudioClip orbDrop;
     public List<Transform> lights;
@@ -39,6 +43,16 @@ public class GameManager : MonoBehaviour {
             selectedOrb.SetPosition(character.orbSlot.position);
         }
         shade.sortingOrder = zoomer.currentLevel.sortingOrder - 1;
+        text.text = GetAppleScore() + "/" + apples.Count + " collected!";
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            //restart the game
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.M)) {
+            //mute the game audio
+            musicSource.mute = !musicSource.mute;
+        }
     }
 
     public void DeselectOrb() {
@@ -77,4 +91,9 @@ public class GameManager : MonoBehaviour {
         return score;
     }
 
+    public void TryWin() {
+        //we won
+        AudioClip victory = GetAppleScore() == apples.Count ? majorVictory : minorVictory;
+        GameManager.i.audioSource.PlayOneShot(victory);
+    }
 }

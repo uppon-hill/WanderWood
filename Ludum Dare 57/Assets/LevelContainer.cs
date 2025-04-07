@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 public class LevelContainer : MonoBehaviour {
     public Color layerColor;
     public SpriteRenderer geometryRenderer;
@@ -12,6 +13,7 @@ public class LevelContainer : MonoBehaviour {
     public PolygonCollider2D geometry;
     Collider2D[] allColliders;
     List<SpriteRenderer> allRenderers;
+    List<Text> allTextRenderers;
     List<SpriteRenderer> allMessRenderers;
     CharacterShadow shadow;
 
@@ -62,6 +64,10 @@ public class LevelContainer : MonoBehaviour {
         foreach (SpriteRenderer r in allRenderers) {
             r.color = new Color(r.color.r, r.color.g, r.color.b, a);
         }
+
+        foreach (Text t in allTextRenderers) {
+            t.color = new Color(t.color.r, t.color.g, t.color.b, a);
+        }
         fogRenderer.color = Helpers.AssignAlpha(fogRenderer.color, fogAlpha * a);
 
     }
@@ -100,6 +106,9 @@ public class LevelContainer : MonoBehaviour {
         return false;
     }
 
+    public bool HasRenderer(SpriteRenderer r) {
+        return allRenderers.Contains(r);
+    }
     public void AddRenderer(SpriteRenderer r) {
         allRenderers.Add(r);
     }
@@ -114,9 +123,10 @@ public class LevelContainer : MonoBehaviour {
         mask.frontSortingOrder = order;
         mask.backSortingOrder = order - 2;
 
+
         allRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
         allMessRenderers = allRenderers.ToList();
-
+        allTextRenderers = GetComponentsInChildren<Text>().ToList();
         allMessRenderers.Remove(geometryRenderer);
         allMessRenderers.Remove(backgroundRenderer);
         allMessRenderers.Remove(mask.GetComponent<SpriteRenderer>());

@@ -47,7 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a761d8900b29343a45eef8f90f7372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   audioSource: {fileID: 1700199550008265699}
+  minorVictory: {fileID: 8300000, guid: d81cf38f7d697934289fc1324d05277b, type: 3}
+  majorVictory: {fileID: 8300000, guid: 679f3bab1ee63354ca4570637e2d189b, type: 3}
   orbGet: {fileID: 8300000, guid: 4c3f073a269cfab43b79dcf8b429f9b9, type: 3}
   orbDrop: {fileID: 8300000, guid: 6b35b39a1875762408b3534b3dfaac76, type: 3}
   lights: []
@@ -60,6 +63,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   shade: {fileID: 0}
+  apples: []
   shouldBounce: 0
 --- !u!82 &1700199550008265699
 AudioSource:

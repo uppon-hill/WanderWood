@@ -7,13 +7,13 @@ public class Apple : MonoBehaviour, IContainable {
     public LevelContainer container { get; set; }
     // Start is called before the first frame update
     void Start() {
-
+        GameManager.i.apples.Add(gameObject);
     }
 
     // Update is called once per frame
     void Update() {
         //if current container is ours and the player is near us 
-        if (container.IsCurrentIndex() && IsNearCharacter()) {
+        if (container.IsCurrentIndex() && IsNearCharacter() && !GameManager.i.zoomer.anim.animating) {
             GameManager.i.audioSource.PlayOneShot(appleGet);
             gameObject.SetActive(false);
         }

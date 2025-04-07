@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74690695c846e4ea0fb1e707b9f4d6, type: 3}
+  m_Name: fireflies-hover
+  m_EditorClassIdentifier: 
+  version: 1.0
+  spriteList:
+  - {fileID: -7665910324428104930, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 5173435332914277393, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 3972675451731807331, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 1682319065289615187, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 1236087440525534711, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: -3160189292496656953, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 8735679774472259723, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: 4249932736072029122, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  - {fileID: -7239088397912181345, guid: abc4d4b61f86a0f479b5736e7150b0aa, type: 3}
+  propertiesList:
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  - frameProperties: []
+  groups: []
+  layers: []

@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448b8e2a1a7e3fe4799017ea8befe6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeColour: {r: 0, g: 0, b: 0, a: 0}
   responsiveness: 0.8
   animator: {fileID: 7080506321570171042}
   sprite: {fileID: 6933370210460630565}
@@ -250,7 +251,7 @@ MonoBehaviour:
       m_Calls: []
   rigidBody: {fileID: 0}
   spriteRenderer: {fileID: 6933370210460630565}
-  mySheet: {fileID: 11400000, guid: 065db97548796294c978827c7bdb146e, type: 2}
+  mySheet: {fileID: 0}
   dbg: 0
   initialised: 0
   frame: 0

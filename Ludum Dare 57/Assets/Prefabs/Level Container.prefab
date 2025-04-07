@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.19902442, g: 0.19246174, b: 0.23584908, a: 1}
+  m_Color: {r: 0.22367854, g: 0.1764706, b: 0.2627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   mask: {fileID: 7622987255398890353}
   geometry: {fileID: 0}
   plants: []
+  fogAlpha: 1
 --- !u!212 &6054112341331223943
 SpriteRenderer:
   m_ObjectHideFlags: 0

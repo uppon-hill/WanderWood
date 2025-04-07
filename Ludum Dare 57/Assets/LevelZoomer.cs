@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelZoomer : MonoBehaviour {
@@ -38,6 +39,8 @@ public class LevelZoomer : MonoBehaviour {
 
     public void HandleInput() {
         if (Mathf.Abs(anim.value - anim.targetValue) < 0.1f) {
+
+            bool gameComplete = false;
             int next = current;
             bool navigable = false;
             bool keyPressed = false;
@@ -50,6 +53,14 @@ public class LevelZoomer : MonoBehaviour {
                 next = current + 1;
                 keyPressed = true;
                 clear = levels[current].ClearOfFog();
+                if (!hasMoreLayers) {
+                    gameComplete = true;
+                    GameManager.i.character.TrySelectOrb();
+                    next = 0;
+                    navigable = true;
+                    clear = true;
+
+                }
 
             } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
                 hasMoreLayers = current > 0;
@@ -61,8 +72,8 @@ public class LevelZoomer : MonoBehaviour {
             }
 
 
-            if (keyPressed && hasMoreLayers) {
-                if (clear) {
+            if (keyPressed && (hasMoreLayers || gameComplete)) {
+                if (clear || gameComplete) {
                     anim.duration = 0.6f;
 
                     //pitch should go up one whole musical note tone for each level
@@ -81,7 +92,7 @@ public class LevelZoomer : MonoBehaviour {
                     SetPartialLevel(current + (next - current) * 0.1f);
                 }
 
-                if (!navigable || !clear) {
+                if ((!navigable || !clear) && !gameComplete) {
                     GameManager.i.shouldBounce = true;
                 }
             }
@@ -141,7 +152,12 @@ public class LevelZoomer : MonoBehaviour {
 
     void FinishAnimation(SimpleAnimation a) {
 
-        if (!levels[current].ClearOfFog() && prev > current) {
+
+        if (current == 0 && prev == levels.Count - 1) {
+            GameManager.i.TryWin();
+        }
+
+        if (!levels[current].ClearOfFog() && prev > current && !(current == 0 && prev == levels.Count - 1)) {
             GameManager.i.shouldBounce = true;
         }
 
@@ -149,9 +165,11 @@ public class LevelZoomer : MonoBehaviour {
             audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
             audioSource.PlayOneShot(bounce);
             GameManager.i.cameraShaker.Shake(0.05f);
-            GameManager.i.zoomer.SetLevel(prev, SimpleAnimation.Curve.Decelerate);
+            anim.duration = 1f;
+            GameManager.i.zoomer.SetLevel(prev, SimpleAnimation.Curve.Accelerate);
             GameManager.i.shouldBounce = false;
             GameManager.i.character.Hurt();
+            GameManager.i.character.body.velocity = Vector2.zero;
 
         }
     }

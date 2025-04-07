@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Orb : MonoBehaviour, IContainable {
+
+
+    public SpriteRenderer fireflies;
     public Color activeColour;
     public float speed;
     public float offset;
@@ -25,17 +28,20 @@ public class Orb : MonoBehaviour, IContainable {
             }
         }
     }
+
     LevelContainer c;
     public SpriteRenderer sprite;
 
     public float clickRadius = 0.08f;
 
+    public bool createdPortal;
     // Start is called before the first frame update
     void Start() {
         GameManager.i.onSelect.AddListener(TryClick);
         randomTimeStart = Random.value * 100;
         GameManager.i.lights.Add(transform);
         animator.spriteRenderer.color = activeColour;
+        fireflies.color = activeColour;
 
     }
 
@@ -49,6 +55,43 @@ public class Orb : MonoBehaviour, IContainable {
             animator.Play(world);
             Breathe();
         }
+
+
+    }
+
+    void LateUpdate() {
+        fireflies.gameObject.SetActive(createdPortal);
+        if (container == null) {
+            fireflies.gameObject.SetActive(false);
+            return;
+        }
+        sprite.sortingOrder = container.sortingOrder + 1;
+
+        fireflies.sortingOrder = sprite.sortingOrder - 10;
+        LevelContainer nextContainer = null;
+        int myContainerIndex = GameManager.i.zoomer.levels.IndexOf(container);
+
+        if (fireflies.transform.parent != null) {
+            if (fireflies.transform.parent.GetComponent<LevelContainer>() != null) {
+                fireflies.transform.parent.GetComponent<LevelContainer>().RemoveRenderer(fireflies);
+            }
+            fireflies.transform.SetParent(container.transform);
+        }
+
+        if (container != null && myContainerIndex < GameManager.i.zoomer.levels.Count - 1) {
+            nextContainer = GameManager.i.zoomer.levels[myContainerIndex + 1];
+
+            if (!nextContainer.HasRenderer(fireflies)) {
+                nextContainer.AddRenderer(fireflies);
+                fireflies.sortingOrder = nextContainer.sortingOrder + 1;
+                fireflies.transform.SetParent(nextContainer.transform);
+            }
+            fireflies.transform.localPosition = transform.parent.localPosition;
+            fireflies.transform.localScale = Vector3.one;
+
+        }
+
+        createdPortal = false;
     }
 
 
